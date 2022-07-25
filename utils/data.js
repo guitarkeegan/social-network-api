@@ -136,7 +136,6 @@ const names = [
         thoughtText: getRandomArrItem(thoughts),
         reactions: [{
             reactionBody: getRandomArrItem(reactions),
-            username,
         }]
       });
     }
@@ -148,8 +147,9 @@ const names = [
     for (let i=0;i<int;i++){
         const randNumbers = Math.floor(Math.random() * 4000);
         const emailEnding = ['com', 'net', 'org', 'edu', 'gov', 'io']
-        results.push(`randoemail${randNumbers}@${getRandomArrItem(emailEnding)}`);
+        results.push(`randoemail${randNumbers}@${getRandomArrItem(names)}.${getRandomArrItem(emailEnding)}`);
     }
+    return results;
   }
 
   

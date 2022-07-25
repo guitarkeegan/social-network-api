@@ -12,10 +12,13 @@ connection.once('open', async () => {
 
   // Drop existing users
   await User.deleteMany({});
-  const email = getRandomEmail(20)
+
+  const emails = getRandomEmail(20)
+  
   const thoughtsGen = getRandomThoughts(20);
   // Create empty array to hold the users
   const users = [];
+    // Create empty array to hold the thoughts
   const thoughts = [];
   // Loop 20 times -- add students to the users array
   for (let i = 0; i < 20; i++) {
@@ -32,7 +35,7 @@ connection.once('open', async () => {
     users.push({
       username,
       thoughts: [thoughtsGen[i]],
-      email: email[i],
+      email: emails[i],
     });
   }
 
@@ -43,7 +46,7 @@ connection.once('open', async () => {
   await Thought.collection.insertMany(thoughts);
 
   // Log out the seed data to indicate what should appear in the database
-  console.table(students);
+  console.table(users);
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });
