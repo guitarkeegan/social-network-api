@@ -122,19 +122,22 @@ const names = [
   // Get a random item given an array
   const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-  // Gets a random full name and email
+  // Gets a random name
   const getRandomName = () => {
     const randNumbers = Math.floor(Math.random() * 4000);
     return `${getRandomArrItem(names)}${randNumbers}${getRandomArrItem(names)}`
   }
   
-  // Function to generate random thoughts that we can add to user object.
-  const getRandomThoughts = (int, username) => {
+  // Function to generate random thoughts that we can add to user object. Will also add one random reaction
+  const getRandomThoughts = (int) => {
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        username,
         thoughtText: getRandomArrItem(thoughts),
+        reactions: [{
+            reactionBody: getRandomArrItem(reactions),
+            username,
+        }]
       });
     }
     return results;

@@ -12,21 +12,27 @@ connection.once('open', async () => {
 
   // Drop existing users
   await User.deleteMany({});
-
+  const email = getRandomEmail(20)
+  const thoughtsGen = getRandomThoughts(20);
   // Create empty array to hold the users
   const users = [];
-
+  const thoughts = [];
   // Loop 20 times -- add students to the users array
   for (let i = 0; i < 20; i++) {
     // Get some random thought objects using a helper function that we imported from ./data
-    const thoughts = getRandomThoughts(20);
-    const email = getRandomEmail(20)
+    
     const username = getRandomName();
+
+    thoughts.push({
+        thoughtText: thoughtsGen[i].thoughtText,
+        username,
+        reactions: thoughtsGen[i].reactions[0]
+    })
 
     users.push({
       username,
-      thoughts,
-      email,
+      thoughts: [thoughtsGen[i]],
+      email: email[i],
     });
   }
 
@@ -34,10 +40,7 @@ connection.once('open', async () => {
   await User.collection.insertMany(users);
 
   // Add thoughts to the collection and await the results
-  await Thought.collection.insertMany({
-    thoughtText: ,
-    users: [...users],
-  });
+  await Thought.collection.insertMany(thoughts);
 
   // Log out the seed data to indicate what should appear in the database
   console.table(students);
