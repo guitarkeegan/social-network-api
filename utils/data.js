@@ -93,7 +93,31 @@ const names = [
     'My new cooking app is ruining my diet.',
     `Poker players! Game starts at 6!`,
     `Has anyone tried the Amazon drone delivery service?`,
+    `What's the weather like out there?`,
+    `Thomas Newman or Randy Newman?`,
+    `Construction at the Auquarium of the Pacific.. so not worth it.`, 
+    `Saw a bunch of engineers perform the Sound of Music today!`
   ];
+
+  const reactions = [
+    `Way to go!`,
+    `I'm not sure if that is true`,
+    `Say whaaat?!`,
+    `I mean they're not wrong..`,
+    `All going to zero bud.`,
+    `That's what you get with a second rate education.`,
+    `Good for you! `,
+    `Thanks for sharing!`,
+    `No comment`,
+    `This one time, I was buying a dog, and this guy said woof.`, 
+    `There are two types of people in this world, and you are one of them`,
+    `I feel bad for the bees, 'cause everyone is afraid of them`,
+    `I like chocolate. It's usually not a problem, but sometimes I get a little carried away.`, 
+    `Time flies!`, 
+    `I remember this!`,
+    `Wouldn't that be nice...`, 
+    `congrats!`
+  ]
   
   // Get a random item given an array
   const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -105,11 +129,12 @@ const names = [
   }
   
   // Function to generate random thoughts that we can add to user object.
-  const getRandomThoughts = (int) => {
+  const getRandomThoughts = (int, username) => {
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        randomThought: getRandomArrItem(thoughts),
+        username,
+        thoughtText: getRandomArrItem(thoughts),
       });
     }
     return results;
