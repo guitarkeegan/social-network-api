@@ -44,6 +44,7 @@ const userSchema = new Schema(
       getters: true,
       virtuals: true
     },
+    id: false,
   }
 );
 // access the friend array to get the number of friends
