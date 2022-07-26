@@ -22,9 +22,9 @@ const userSchema = new Schema(
       unique: true,
       max_length: 50,
       trim: true,
-      lowercase: true,
+      lowercase: true, // problem here
       validate: [validateEmail, 'Please fill a valid email address'],
-      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/, 'Please fill a valid email address']
+      match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Please fill a valid email address']
     },
     thoughts: [
         {

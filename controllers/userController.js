@@ -20,6 +20,7 @@ module.exports = {
   },
   // create a new user
   createUser(req, res) {
+    console.log(req.body);
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
@@ -61,7 +62,7 @@ module.exports = {
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $pull: { friends: { userId: req.params.friendId } } },
+      { $pull: { friends: req.params.friendId } },
       { runValidators: true, new: true }
     )
       .then((user) =>
