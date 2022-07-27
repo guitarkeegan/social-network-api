@@ -25,7 +25,7 @@ module.exports = {
       Thought.create(req.body)
         .then((thought) => {
           return User.findOneAndUpdate(
-            { _id: req.body._id },
+            { _id: req.params.thoughtId },
             { $addToSet: { thoughts: thought._id } },
             { new: true }
           );
@@ -42,13 +42,12 @@ module.exports = {
           res.status(500).json(err);
         });
     },
-    // Updates and thought using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
+    // Updates and thought using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body.
     updateThought(req, res) {
       Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $set: req.body },
         { new: true },
-        // { runValidators: true, new: true }
       )
         .then((thought) =>
           !thought
