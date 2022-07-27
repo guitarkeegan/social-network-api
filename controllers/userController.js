@@ -58,7 +58,6 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Remove friend from a user
-  // TODO: pass two params
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
