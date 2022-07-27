@@ -129,6 +129,7 @@ const names = [
   }
   
   // Function to generate random thoughts that we can add to user object. Will also add one random reaction
+  // This is not used for the assignment
   const getRandomThoughts = (int) => {
     const results = [];
     for (let i = 0; i < int; i++) {
