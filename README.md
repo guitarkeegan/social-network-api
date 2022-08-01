@@ -39,4 +39,6 @@
   
  ## Preview
 
+ [Video Demo](https://loom.com/share/folder/f8aca736c21941b2a8bf25bb0ad272b0)
+
  ![demo](./social-media-demo.gif)
