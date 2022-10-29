@@ -32,7 +32,7 @@
 
   [My Github profile](https://github.com/guitarkeegan)
 
-  Send me and email [here](mailto:keegananglim@gmail.com) to contact me directly.
+  Send me an email [here](mailto:keegananglim@gmail.com) to contact me directly.
 
   ## License
   This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) - click the link to read the license.
